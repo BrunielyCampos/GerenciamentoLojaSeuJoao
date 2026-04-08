@@ -12,6 +12,5 @@ public class FuncionarioEntity {
 
     private String nomeFuncionario;
 
-    
-
+    private double numeroFuncionario;
 }
