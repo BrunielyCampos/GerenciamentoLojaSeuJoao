@@ -8,12 +8,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table (name = "Loja")
+@Table (name = "Usuaio")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class LojaEntity {
+public class UsuarioEntity {
 
 
 }
