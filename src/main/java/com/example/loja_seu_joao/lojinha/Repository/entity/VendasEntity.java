@@ -6,26 +6,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Entity
-@Table (name = "Loja")
+@Table(name = "Vendas")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class LojaEntity {
+public class VendasEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_Loja;
+    private Long id_vendas;
 
-    @Column(name = "nome_loja")
-    private String nome_loja;
+    private String nome_cliente;
 
-    @OneToMany
-    private List<ProdutoEntity> produto;
-
-    @OneToOne(mappedBy = "Loja")
-    private EstoqueEntity estoque;
-
+    private ProdutoEntity produto;
 }

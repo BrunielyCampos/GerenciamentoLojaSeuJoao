@@ -1,14 +1,15 @@
 package com.example.loja_seu_joao.lojinha.Repository.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
-@Table (name = "estoque")
+@Table (name = "Estoque")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -17,16 +18,12 @@ public class EstoqueEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_estoque;
+    private Long id_estoque;
 
-    @Column(name = "nomeItensArmazenados")
-    private String nomeIntensArmazenados;
+    @Column(name = "qtd_produtos_Estoque")
+    private int qtd_produtos_Estoque;
 
-    @Column(name = "nomeItem")
-    @NotBlank
-    private String nomeItem;
-
-    @Column(name = "qtd_Itens_Estoque")
-    private int qtd_Itens_Estoque;
-
+    @OneToMany (cascade = CascadeType.ALL)
+    @JoinColumn (name = "id_produto", referencedColumnName = "id_estoque")
+    private List<ProdutoEntity> produtosEntities;
 }
