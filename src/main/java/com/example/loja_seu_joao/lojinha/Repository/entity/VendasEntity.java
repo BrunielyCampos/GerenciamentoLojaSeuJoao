@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "Vendas")
 @Getter
@@ -20,5 +22,9 @@ public class VendasEntity {
 
     private String nome_cliente;
 
-    private ProdutoEntity produto;
+    @OneToMany
+    private FuncionarioEntity funcionario;
+
+    @OneToMany(mappedBy = "Vendas", cascade = CascadeType.ALL)
+    private List<ItemVendaEntity> itens_vedidos;
 }
