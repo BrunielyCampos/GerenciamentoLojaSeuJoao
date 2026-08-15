@@ -23,13 +23,10 @@ public class FuncionarioEntity {
     @Column(name = "nomeFuncionario")
     private String nomeFuncionario;
 
-    @Column(name = "numeroFuncionario")
-    private double numeroFuncionario;
-
-    @Column(name = "numero_funci")
+    @Column(name = "numero_funci", length = 10)
     private String numeroFunci;
 
-    @Column(name = "senha")
+    @Column(name = "senha", length = 8)
     @NotBlank
     private String senha;
 

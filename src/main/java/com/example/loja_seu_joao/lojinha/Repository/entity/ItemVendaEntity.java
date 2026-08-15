@@ -18,14 +18,14 @@ public class ItemVendaEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_ItenVenda;
 
-    @ManyToOne
-    private ProdutoEntity produto;
-
     @Column(name = "quatidade_venda_produto")
     private int quatidade_venda_produto;
 
     @Column(name = "preco_da_venda")
     private double preco_da_venda;
+
+    @ManyToOne
+    private ProdutoEntity produto;
 
     @ManyToOne
     private VendasEntity vendas;
