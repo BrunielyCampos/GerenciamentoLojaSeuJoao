@@ -6,26 +6,25 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Entity
-@Table (name = "Loja")
+@Table(name = "Endereco")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class LojaEntity {
+public class EnderecoEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_Loja;
+    private Long id_endereco;
 
-    @Column(name = "nome_loja")
-    private String nome_loja;
+    @Column(name = "rua", length = 100)
+    private String rua;
 
-    @OneToMany
-    private List<ProdutoEntity> produto;
+    @Column(name = "numero", length = 10)
+    private int numero;
 
-    @OneToOne(mappedBy = "Loja")
-    private EstoqueEntity estoque;
+    @Column(name = "cep", length = 9)
+    private String cep;
 
 }

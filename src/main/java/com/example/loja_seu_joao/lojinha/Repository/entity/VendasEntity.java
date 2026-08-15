@@ -9,21 +9,22 @@ import lombok.Setter;
 import java.util.List;
 
 @Entity
-@Table (name = "Estoque")
+@Table(name = "Vendas")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class EstoqueEntity {
+public class VendasEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_estoque;
+    private Long id_vendas;
 
-    @Column(name = "qtd_produtos_Estoque")
-    private int qtd_produtos_Estoque;
+    private String nome_cliente;
 
-    @OneToMany (cascade = CascadeType.ALL)
-    @JoinColumn (name = "id_produto", referencedColumnName = "id_estoque")
-    private List<ProdutoEntity> produtosEntities;
+    @OneToMany
+    private FuncionarioEntity funcionario;
+
+    @OneToMany(mappedBy = "Vendas", cascade = CascadeType.ALL)
+    private List<ItemVendaEntity> itens_vedidos;
 }
